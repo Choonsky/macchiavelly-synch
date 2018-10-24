@@ -1,6 +1,6 @@
 package commands.client;
 
-public class Welcome extends IntroducePlayer{
+public class Welcome extends IntroducePlayer {
     private int numOfPlayers;
 
     public Welcome() {

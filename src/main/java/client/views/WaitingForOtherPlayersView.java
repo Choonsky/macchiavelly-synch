@@ -1,7 +1,5 @@
 package client.views;
 
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
@@ -28,15 +26,14 @@ public class WaitingForOtherPlayersView extends View {
 
     private static WaitingForOtherPlayersView ourInstance = new WaitingForOtherPlayersView();
 
-    public static WaitingForOtherPlayersView getInstance() {
-        return ourInstance;
-    }
 
-    
+    /**
+     * CONSTRUCTOR
+     */
     private WaitingForOtherPlayersView() {
         super();
         layout = createLayout(LAYOUT_SPACING, LAYOUT_PADDING);
-        layout.setBackground(new Background(new BackgroundFill(Color.color(1,1,1,0.5),null,null)));
+        layout.setBackground(new Background(new BackgroundFill(Color.color(1, 1, 1, 0.5), null, null)));
 
         Label lblMsg = new Label("Waiting for other players to join");
         lblMsg.setFont(Font.font("Verdana", FontWeight.BOLD, 24));
@@ -46,6 +43,17 @@ public class WaitingForOtherPlayersView extends View {
         layout.getChildren().add(lblMsg);
     }
 
+
+    /**
+     * GETTERS
+     */
+    /**
+     * @return
+     */
+    public static WaitingForOtherPlayersView getInstance() {
+        return ourInstance;
+    }
+
     /**
      * @return
      */
@@ -53,6 +61,9 @@ public class WaitingForOtherPlayersView extends View {
         return layout;
     }
 
+    /**
+     * @return
+     */
     @Override
     public Parent getRoot() {
         return layout;

@@ -20,36 +20,68 @@ import java.io.PrintWriter;
 import java.util.List;
 
 public class ClientManager {
+    /**
+     * PRIVATE STATIC FINALS
+     */
     private static final int MINIMUM_SET_SIZE = 3;
+
+    /**
+     * PRIVATE FINALS
+     */
     private final GameView gameView;
 
+    /**
+     * PRIVATE STATICS
+     */
+    private static ClientManager ourInstance = new ClientManager();
+    /**
+     * CLASS VARIABLES
+     */
     Server server;
     Thread serverThread;
     boolean serverStarted = false;
     boolean joinedGame = false;
 
-    private static ClientManager ourInstance = new ClientManager();
+    /**
+     * PRIVATES
+     */
     private Thread clientThread;
     private Stage stage;
     private StackPane root;
-    public BufferedReader in;
-    public PrintWriter out;
     private App app;
-    //    private CardSet selectedCards;
+    //  private CardSet selectedCards;
     private SelectionManager selectionManager = new SelectionManager();
     private Client client;
     private int currentTurn;
     private CardView lastCardDrawn;
 
+    /**
+     * PUBLICS
+     */
+    public BufferedReader in;
+    public PrintWriter out;
+
+    /**
+     * @return
+     */
     public static ClientManager getInstance() {
         return ourInstance;
     }
 
+    /**
+     * CONSTRUCTOR
+     */
     private ClientManager() {
 
         this.gameView = GameView.getInstance();
     }
 
+    /**
+     * @param port
+     * @param numberOfPlayers
+     * @param adminName
+     * @throws Exception
+     */
     public void startServer(int port, int numberOfPlayers, String adminName) throws Exception {
         if (serverStarted) {
             throw new UnsupportedOperationException("A game server is already started at port " + server.getPort());
@@ -70,21 +102,47 @@ public class ClientManager {
         }
     }
 
+    /**
+     * @return
+     */
+    public App getApp() {
+        return app;
+    }
+
+    /**
+     * @param app
+     */
+    public void setApp(App app) {
+        this.app = app;
+    }
+
+    /**
+     * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
         this.root = (StackPane) stage.getScene().getRoot();
     }
 
+    /**
+     * @param view
+     */
     public synchronized void showView(View view) {
         root.getChildren().clear();
         root.getChildren().add(view.getRoot());
     }
 
+    /**
+     * @param view
+     */
     public synchronized void pushView(View view) {
         root.getChildren().add(view.getRoot());
         view.setMainApp(this.app);
     }
 
+    /**
+     * @param client
+     */
     private void loginServer(Client client) {
         clientThread = new Thread(client);
         this.client = client;
@@ -92,6 +150,9 @@ public class ClientManager {
         joinedGame = true;
     }
 
+    /**
+     * @param numberOfPlayers
+     */
     public void startGame(int numberOfPlayers) {
 //        new GameViewControllerTest(this.app, gameView);
         gameView.setPlayerCount(numberOfPlayers);
@@ -102,6 +163,10 @@ public class ClientManager {
 //        pushView(WaitingForOtherPlayersView.getInstance());
     }
 
+    /**
+     * @param port
+     * @param name
+     */
     private void loginServer(int port, String name) {
         try {
             loginServer(new Client(this, port, name));
@@ -110,6 +175,11 @@ public class ClientManager {
         }
     }
 
+    /**
+     * @param ip
+     * @param port
+     * @param name
+     */
     public void loginServer(String ip, int port, String name) {
         try {
             loginServer(new Client(this, ip, port, name));
@@ -118,14 +188,10 @@ public class ClientManager {
         }
     }
 
-    public void setApp(App app) {
-        this.app = app;
-    }
-
-    public App getApp() {
-        return app;
-    }
-
+    /**
+     * @param seatNumber
+     * @param hand
+     */
     public void dealHand(int seatNumber, CardSet hand) {
         for (Card card : hand.getCards()) {
             // 1 open card to the owner
@@ -137,6 +203,12 @@ public class ClientManager {
         startTurn();
     }
 
+    /**
+     * @param playerName
+     * @param playerId
+     * @param seatNumber
+     * @param owner
+     */
     public void introducePlayer(String playerName, int playerId, int seatNumber, boolean owner) {
         if (owner) {
             gameView.setOwnerPlayer(playerId, seatNumber);
@@ -144,7 +216,11 @@ public class ClientManager {
         gameView.fillSeat(playerName, playerId, seatNumber);
     }
 
-    //    When user clicks a card target, we move the card from old set to the target set.
+    /**
+     * When user clicks a card target, we move the card from old set to the target set.
+     *
+     * @param targetSet
+     */
     public void droppedToTarget(CardSetView targetSet) {
         if (!isOwnerTurn()) {
             return;

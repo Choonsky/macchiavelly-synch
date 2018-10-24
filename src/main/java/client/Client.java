@@ -50,6 +50,13 @@ public class Client extends Task<Void>/* implements Runnable*/ {
         manager.out = out;
     }
 
+    /**
+     * CONSTRUCTOR
+     * @param manager
+     * @param port
+     * @param playerName
+     * @throws IOException
+     */
     public Client(ClientManager manager, int port, String playerName) throws IOException {
         this(manager, "127.0.0.1", port, playerName);
     }
@@ -90,6 +97,10 @@ public class Client extends Task<Void>/* implements Runnable*/ {
         }
     }
 
+    /**
+     *
+     * @param cmd
+     */
     public void sendCommandToServer(Command cmd) {
         this.out.println(cmd.serialize());
     }

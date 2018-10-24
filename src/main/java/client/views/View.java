@@ -18,6 +18,9 @@ import java.net.URL;
 
 public abstract class View {
 
+    /**
+     * PROTECTS
+     */
     protected String fxml;
     protected Parent root;
 
@@ -36,8 +39,11 @@ public abstract class View {
      ******************************************************************/
     private App mainApp;
 
+    /**
+     * @throws Exception
+     */
     protected void loadFxml() throws Exception {
-        if(fxml == null || fxml.isEmpty()){
+        if (fxml == null || fxml.isEmpty()) {
             throw new InvalidObjectException("The fxml field should be set before calling loadFxml method.");
         }
 
@@ -53,7 +59,9 @@ public abstract class View {
         this.root = loader.getRoot();
     }
 
-
+    /**
+     * GETTERS
+     */
     /**
      * get the background
      *
@@ -91,7 +99,19 @@ public abstract class View {
         return mainApp;
     }
 
+    /**
+     * gets this view's root
+     *
+     * @return
+     */
+    public Parent getRoot() {
 
+        return root;
+    }
+
+    /**
+     * SETTERS
+     */
     /**
      * Is called by the main application to give a reference back to itself.
      *
@@ -130,10 +150,5 @@ public abstract class View {
         }
 
         return layout;
-    }
-
-    public Parent getRoot() {
-
-        return root;
     }
 }

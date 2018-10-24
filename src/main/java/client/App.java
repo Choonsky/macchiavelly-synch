@@ -13,7 +13,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import tests.testController.GameViewControllerTest;
 import tests.testController.LoginViewControllerTest;
 
 import java.io.BufferedReader;
@@ -160,8 +159,6 @@ public class App extends Application {
                 // Give the controller access to the main app.
                 GameView gameView = loader.getController();
                 activeView = gameView;
-
-                new GameViewControllerTest(this, gameView);
 
                 gameView.setMainApp(this);
 

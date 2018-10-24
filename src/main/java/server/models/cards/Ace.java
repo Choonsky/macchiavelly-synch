@@ -31,6 +31,10 @@ public class Ace extends Changeable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "a" + this.getSuit().name().substring(0, 1).toLowerCase();

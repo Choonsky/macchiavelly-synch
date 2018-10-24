@@ -52,13 +52,13 @@ public class GameSeats {
 
             double opponentScale = 0.5;
             double cardHeight = CardView.CARD_PREF_HEIGHT;
-            double translatePlayer = CardView.CARD_PREF_HEIGHT*(1-opponentScale/2);
+            double translatePlayer = CardView.CARD_PREF_HEIGHT * (1 - opponentScale / 2);
             switch (player.getPosition()) {
                 case TOP:
                     board.setTop(player);
                     player.container.prefWidthProperty().bind(board.widthProperty().subtract(cardHeight));
                     BorderPane.setAlignment(player, Pos.CENTER);
-                    BorderPane.setMargin(player, new Insets(-translatePlayer,0,0,0));
+                    BorderPane.setMargin(player, new Insets(-translatePlayer, 0, 0, 0));
                     break;
                 case BOTTOM:
                     board.setBottom(player);
@@ -69,12 +69,12 @@ public class GameSeats {
                     board.setLeft(player);
                     player.container.prefWidthProperty().bind(board.heightProperty().subtract(cardHeight));
                     BorderPane.setAlignment(player, Pos.CENTER_LEFT);
-                    BorderPane.setMargin(player, new Insets(0,0,0,-translatePlayer));
+                    BorderPane.setMargin(player, new Insets(0, 0, 0, -translatePlayer));
                     break;
                 case RIGHT:
                     board.setRight(player);
                     player.container.prefWidthProperty().bind(board.heightProperty().subtract(cardHeight));
-                    BorderPane.setMargin(player, new Insets(0,-translatePlayer,0,0));
+                    BorderPane.setMargin(player, new Insets(0, -translatePlayer, 0, 0));
                     BorderPane.setAlignment(player, Pos.CENTER_RIGHT);
                     break;
             }

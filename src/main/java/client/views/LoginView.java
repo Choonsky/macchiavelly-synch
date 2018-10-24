@@ -45,6 +45,9 @@ public class LoginView extends View {
     private Button btnConnect;
     private Label lblMessage;
 
+    /**
+     * CONSTRUCTOR
+     */
     public LoginView() {
         super();
         layout = createLayout(LAYOUT_SPACING, LAYOUT_PADDING);
@@ -111,6 +114,9 @@ public class LoginView extends View {
     }
 
     /**
+     * GETTERS
+     */
+    /**
      * @return
      */
     public VBox getLayout() {
@@ -149,6 +155,9 @@ public class LoginView extends View {
         return lblMessage;
     }
 
+    /**
+     * SETTERS
+     */
     /**
      * sets reflection of the GridPane
      *
