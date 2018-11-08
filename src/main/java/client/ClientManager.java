@@ -62,6 +62,8 @@ public class ClientManager {
     public PrintWriter out;
 
     /**
+     * gets the instance
+     *
      * @return
      */
     public static ClientManager getInstance() {
@@ -87,14 +89,14 @@ public class ClientManager {
             throw new UnsupportedOperationException("A game server is already started at port " + server.getPort());
         }
         try {
-//          This is the admin of the game. The admin starts the server and waits for other players to join.
+            //This is the admin of the game. The admin starts the server and waits for other players to join.
             server = new Server(port, numberOfPlayers);
             serverThread = new Thread(server);
             serverThread.setName("Server thread");
             serverThread.start();
             serverStarted = true;
 
-//            Admin joins the game first.
+            //Admin joins the game first.
             loginServer(port, adminName);
 
         } catch (Exception e) {
@@ -103,6 +105,8 @@ public class ClientManager {
     }
 
     /**
+     * gets the app
+     *
      * @return
      */
     public App getApp() {
@@ -110,6 +114,8 @@ public class ClientManager {
     }
 
     /**
+     * sets the app
+     *
      * @param app
      */
     public void setApp(App app) {
@@ -117,6 +123,8 @@ public class ClientManager {
     }
 
     /**
+     * sets the stage
+     *
      * @param stage
      */
     public void setStage(Stage stage) {

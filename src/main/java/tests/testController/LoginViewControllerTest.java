@@ -14,6 +14,7 @@ public class LoginViewControllerTest {
 
     /**
      * CONSTRUCTOR
+     *
      * @param app
      * @param loginView
      */

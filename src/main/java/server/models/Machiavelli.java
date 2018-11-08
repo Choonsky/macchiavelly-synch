@@ -555,6 +555,7 @@ public class Machiavelli {
 
         /**
          * CONSTRUCTOR
+         *
          * @param seatNumber
          * @param taken
          */
@@ -568,6 +569,7 @@ public class Machiavelli {
          */
         /**
          * gets the seatNumber
+         *
          * @return int seatNumber
          */
         public int getSeatNumber() {
@@ -576,6 +578,7 @@ public class Machiavelli {
 
         /**
          * gets the player
+         *
          * @return Player object "player"
          */
         public Player getPlayer() {
@@ -584,6 +587,7 @@ public class Machiavelli {
 
         /**
          * gets the next seat
+         *
          * @return int nextSeat
          */
         public Seat getNextSeat() {
@@ -592,6 +596,7 @@ public class Machiavelli {
 
         /**
          * sets the boolean "taken"
+         *
          * @param taken
          */
         public void setTaken(Boolean taken) {
@@ -600,6 +605,7 @@ public class Machiavelli {
 
         /**
          * sets the seatNumber
+         *
          * @param seatNumber
          */
         public void setSeatNumber(int seatNumber) {
@@ -608,6 +614,7 @@ public class Machiavelli {
 
         /**
          * sets the player
+         *
          * @param player
          */
         public void setPlayer(Player player) {
@@ -616,7 +623,6 @@ public class Machiavelli {
         }
 
         /**
-         *
          * @param nextSeat
          */
         public void setNextSeat(Seat nextSeat) {

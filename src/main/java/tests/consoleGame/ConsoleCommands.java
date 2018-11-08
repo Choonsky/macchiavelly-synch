@@ -14,6 +14,7 @@ public class ConsoleCommands {
 
     /**
      * main method
+     *
      * @param args
      * @throws IOException
      */

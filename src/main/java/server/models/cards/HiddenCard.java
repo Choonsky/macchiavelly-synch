@@ -15,7 +15,6 @@ public class HiddenCard extends Card {
     private static HiddenCard ourInstance = new HiddenCard();
 
     /**
-     *
      * @return HiddenCard
      */
     public static HiddenCard getInstance() {
@@ -24,6 +23,7 @@ public class HiddenCard extends Card {
 
     /**
      * gets String "hidden"
+     *
      * @return String
      */
     public static String getAsString() {
@@ -32,6 +32,7 @@ public class HiddenCard extends Card {
 
     /**
      * returns String "hidden"
+     *
      * @return String
      */
     @Override
@@ -41,6 +42,7 @@ public class HiddenCard extends Card {
 
     /**
      * returns the url of the BACK_OF_CARD_IMAGE
+     *
      * @return
      */
     @Override

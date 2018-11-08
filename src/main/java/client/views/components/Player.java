@@ -38,7 +38,7 @@ public class Player extends Group implements EventHandler<CardEvent> {
     }
 
     /**
-     *
+     * sets up this player's container
      */
     private void initContainer() {
         this.getChildren().add(container);
@@ -191,7 +191,7 @@ public class Player extends Group implements EventHandler<CardEvent> {
 
 
     /**
-     *
+     * update player's infoText
      */
     private void updateInfoText() {
         String infoText = this.name;

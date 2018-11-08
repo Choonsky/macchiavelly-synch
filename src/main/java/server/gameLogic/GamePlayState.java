@@ -9,7 +9,6 @@ public class GamePlayState extends GameState {
     private static GamePlayState ourInstance = new GamePlayState();
 
     /**
-     *
      * @return
      */
     public static GamePlayState getInstance() {
@@ -23,7 +22,6 @@ public class GamePlayState extends GameState {
     }
 
     /**
-     *
      * @param cmd
      */
     @Override

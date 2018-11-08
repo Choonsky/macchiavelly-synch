@@ -18,6 +18,7 @@ public class ConsoleGame {
 
     /**
      * main method
+     *
      * @param args
      */
     public static void main(String[] args) {

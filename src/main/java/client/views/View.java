@@ -18,28 +18,30 @@ import java.net.URL;
 
 public abstract class View {
 
-    /**
-     * PROTECTS
-     */
+    /*******************
+     ***** PROTECTS ****
+     *******************/
     protected String fxml;
     protected Parent root;
 
 
-    /*******************************************************************
-     * *************************PRIVATE STATIC FINALS*******************
-     ******************************************************************/
+    /*****************************
+     ****PRIVATE STATIC FINALS****
+     *****************************/
     private static final String HOME_BACKGROUND_FILENAME = "game.jpg";
     private static final String GREY_BTN_STYLE = "-fx-base: orange; -fx-text-fill: black;";
 
     private static final int BTN_MAX_WIDTH = 120;
     private static final int BTN_MAX_HEIGHT = 60;
 
-    /*******************************************************************
-     * *************************PRIVATES*******************
-     ******************************************************************/
+    /********************
+     ****** PRIVATES *****
+     ********************/
     private App mainApp;
 
     /**
+     * loads the fxml
+     *
      * @throws Exception
      */
     protected void loadFxml() throws Exception {
@@ -63,7 +65,7 @@ public abstract class View {
      * GETTERS
      */
     /**
-     * get the background
+     * gets the background
      *
      * @param fileName
      * @return
@@ -122,8 +124,10 @@ public abstract class View {
     }
 
     /**
+     * creates a button with the given text and the default style, height and width
+     *
      * @param text
-     * @return
+     * @return Button
      */
     public Button createBtn(String text) {
         Button btn = new Button(text);
@@ -134,9 +138,11 @@ public abstract class View {
     }
 
     /**
+     * creates a VBox with the given spacing, padding and the default alignment and homeBackground
+     *
      * @param spacing
      * @param padding
-     * @return
+     * @return VBox
      */
     public VBox createLayout(int spacing, int padding) {
         VBox layout = new VBox(spacing);

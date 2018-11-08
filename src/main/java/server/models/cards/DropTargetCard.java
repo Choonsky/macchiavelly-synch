@@ -10,6 +10,7 @@ public class DropTargetCard extends Card {
 
     /**
      * CONSTRUCTOR
+     *
      * @param view
      */
     public DropTargetCard(CardSetView view) {
@@ -23,7 +24,6 @@ public class DropTargetCard extends Card {
      * GETTERS
      */
     /**
-     *
      * @return
      */
     public CardSetView getView() {
@@ -34,7 +34,6 @@ public class DropTargetCard extends Card {
      * SETTERS
      */
     /**
-     *
      * @param view
      */
     public void setView(CardSetView view) {
@@ -42,7 +41,6 @@ public class DropTargetCard extends Card {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -51,7 +49,6 @@ public class DropTargetCard extends Card {
     }
 
     /**
-     *
      * @return
      */
     @Override

@@ -7,20 +7,38 @@ import java.util.List;
 
 
 public class PlayerMove extends ServerCommand {
+    /**
+     * PROTECTS
+     */
     protected int seatNumber;
     protected List<CardSet> table;
     protected CardSet playedCards;
 
+    /**
+     * CONSTRUCTOR
+     */
     public PlayerMove() {
         super(CommandNames.PLAYER_MOVE);
         table = new ArrayList<>();
     }
 
+    /**
+     * CONSTRUCTOR
+     *
+     * @param cmdString
+     */
     public PlayerMove(String cmdString) {
         super(cmdString);
         table = new ArrayList<>();
     }
 
+    /**
+     * CONSTRUCTOR
+     *
+     * @param seatNumber
+     * @param playedCards
+     * @param table
+     */
     public PlayerMove(int seatNumber, CardSet playedCards, List<CardSet> table) {
         this();
         this.seatNumber = seatNumber;
@@ -34,6 +52,43 @@ public class PlayerMove extends ServerCommand {
         }
     }
 
+    /**
+     * GETTERS
+     */
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+
+    public List<CardSet> getTable() {
+        return table;
+    }
+
+
+    public CardSet getPlayedCards() {
+        return playedCards;
+    }
+
+
+    /**
+     * SETTERS
+     */
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public void setTable(List<CardSet> table) {
+        this.table = table;
+    }
+
+    public void setPlayedCards(CardSet playedCards) {
+        this.playedCards = playedCards;
+    }
+
+
+    /**
+     * @param commandStr
+     */
     @Override
     public void doParse(String commandStr) {
         table.clear();
@@ -51,6 +106,9 @@ public class PlayerMove extends ServerCommand {
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void doExecute() {
         System.out.println("PlayerMove executing itself...");
@@ -59,27 +117,5 @@ public class PlayerMove extends ServerCommand {
 //        System.out.println(" Move accepted: " + result);
     }
 
-    public int getSeatNumber() {
-        return seatNumber;
-    }
 
-    public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public List<CardSet> getTable() {
-        return table;
-    }
-
-    public void setTable(List<CardSet> table) {
-        this.table = table;
-    }
-
-    public CardSet getPlayedCards() {
-        return playedCards;
-    }
-
-    public void setPlayedCards(CardSet playedCards) {
-        this.playedCards = playedCards;
-    }
 }

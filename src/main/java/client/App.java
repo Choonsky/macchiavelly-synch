@@ -21,15 +21,17 @@ import java.io.PrintWriter;
 
 public class App extends Application {
 
-    /*******************************************************************
-     * *************************PRIVATE STATIC FINALS*******************
-     ******************************************************************/
+    /*******************************
+     **** PRIVATE STATIC FINALS ****
+     *******************************/
     private static final String TITLE = "Machiavelli";
     private static final int MIN_WIDTH = 800;
     public static final int MIN_HEIGHT = (int) (MIN_WIDTH * 0.66);
 
 
     /**
+     * main method
+     *
      * @param args
      * @throws IOException
      */
@@ -37,28 +39,37 @@ public class App extends Application {
         Application.launch(App.class);
     }
 
-    /*******************************************************************
-     * *************************PRIVATES********************************
-     ******************************************************************/
+    /***************
+     ****PRIVATES****
+     ***************/
     private Thread clientThread;
 
+    //stage displayed
     private Stage primaryStage;
+
 
     private Scene scene;
 
+    //view in display
     private View activeView;
+
 
     private LoginView loginView;
 
     @FXML
     private StackPane rootLayout;
 
-    /*******************************************************************
-     **************************PROTECTEDS********************************
-     ******************************************************************/
+    /***************
+     ****PROTECTS****
+     *****************/
     protected BufferedReader in;
     protected PrintWriter out;
 
+    /**
+     * Constructor
+     *
+     * @throws IOException
+     */
     public App() throws IOException {
     }
 
@@ -89,7 +100,7 @@ public class App extends Application {
     }
 
     /**
-     *
+     * sets up the root layout
      */
     private void initRootLayout() {
         try {
@@ -112,10 +123,12 @@ public class App extends Application {
         }
     }
 
-    /*******************************************************************
-     **************************GETTERS********************************
-     ******************************************************************/
+    /**************************
+     *********GETTERS***********
+     **************************/
     /**
+     * gets the activeView
+     *
      * @return
      */
     public View getActiveView() {
@@ -131,16 +144,24 @@ public class App extends Application {
         return primaryStage;
     }
 
+    /***********************
+     ****DISPLAY METHODS****
+     ***********************/
+    /**
+     * displays the given view
+     *
+     * @param view
+     */
     public synchronized void showView(View view) {
         scene.setRoot(view.getRoot());
         activeView = view;
         view.setMainApp(this);
     }
 
-    /*******************************************************************
-     **************************DISPLAY METHODS**************************
-     ******************************************************************/
+
     /**
+     * displays the gameView
+     *
      * @param numOfPlayers
      */
     public synchronized void showGameView(int numOfPlayers) {
@@ -169,7 +190,7 @@ public class App extends Application {
     }
 
     /**
-     *
+     * displays the waiting view
      */
     public synchronized void showWaitingView() {
 //        WaitingForOtherPlayersView waitingForOthersView = new WaitingForOtherPlayersView();
@@ -186,7 +207,7 @@ public class App extends Application {
     }
 
     /**
-     *
+     * displays the login view
      */
     public synchronized void showLoginView() {
         activeView = loginView;

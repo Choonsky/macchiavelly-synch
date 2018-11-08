@@ -40,7 +40,7 @@ public class CardView extends ImageView implements Comparable<CardView> {
      * GETTERS
      */
     /**
-     * returns this cardView's card
+     * gets this cardView's card
      *
      * @return
      */
@@ -49,6 +49,8 @@ public class CardView extends ImageView implements Comparable<CardView> {
     }
 
     /**
+     * gets this CardView's parentSet
+     *
      * @return
      */
     public CardSetView getParentSet() {
@@ -59,7 +61,7 @@ public class CardView extends ImageView implements Comparable<CardView> {
      * SETTERS
      */
     /**
-     * sets the given card as this cardView's card
+     * sets the given card as this CardView's card
      *
      * @param card
      */
@@ -68,7 +70,7 @@ public class CardView extends ImageView implements Comparable<CardView> {
     }
 
     /**
-     * sets this cardView's selected
+     * sets this CardView's selected
      *
      * @param selected
      */
@@ -79,7 +81,7 @@ public class CardView extends ImageView implements Comparable<CardView> {
 
 
     /**
-     * sets this cardView's valid
+     * sets this CardView's valid
      *
      * @param valid
      */
@@ -90,6 +92,8 @@ public class CardView extends ImageView implements Comparable<CardView> {
 
 
     /**
+     * sets this CardView's parentSet
+     *
      * @param parentSet
      */
     public void setParentSet(CardSetView parentSet) {
@@ -97,7 +101,7 @@ public class CardView extends ImageView implements Comparable<CardView> {
     }
 
     /**
-     * sets the given newcomer value this cardView's newcomer value
+     * sets the given newcomer value this CardView's newcomer value
      *
      * @param newcomer
      */
@@ -107,6 +111,8 @@ public class CardView extends ImageView implements Comparable<CardView> {
     }
 
     /**
+     * checks if this CardView is selected
+     *
      * @return
      */
     public boolean isSelected() {
@@ -115,6 +121,8 @@ public class CardView extends ImageView implements Comparable<CardView> {
 
 
     /**
+     * checks if this CardView is valid
+     *
      * @return
      */
     public boolean isValid() {
@@ -122,14 +130,14 @@ public class CardView extends ImageView implements Comparable<CardView> {
     }
 
     /**
-     *
+     * removes this cardView from it's parentSet
      */
     public void removeFromParentSet() {
         getParentSet().removeCard(this);
     }
 
     /**
-     *
+     * updates the effect for this CardView
      */
     private void updateEffect() {
         if (selected) {

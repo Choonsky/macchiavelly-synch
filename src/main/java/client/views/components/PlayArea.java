@@ -39,6 +39,7 @@ public class PlayArea implements EventHandler<CardEvent> {
     public List<CardSet> getSnapshot() {
         return snapshot;
     }
+
     /**
      * SETTERS
      */
@@ -84,8 +85,10 @@ public class PlayArea implements EventHandler<CardEvent> {
     }
 
     /**
+     * creates a new cardSetView to add the given cardSet to, then adds the newly created cardSetView to the ArrayList of setViews
+     *
      * @param cardSet
-     * @return
+     * @return the newly created cardSetView
      */
     private CardSetView addSet(CardSet cardSet) {
         CardSetView cardSetView = new CardSetView(cardSet);
@@ -94,6 +97,8 @@ public class PlayArea implements EventHandler<CardEvent> {
     }
 
     /**
+     * adds the given cardSetView to setsArea, sets the CardEventHandler for the cardSetView then adds the cardSetView to the ArrayList of setViews
+     *
      * @param cardSetView
      */
     private void addSet(CardSetView cardSetView) {
@@ -103,6 +108,8 @@ public class PlayArea implements EventHandler<CardEvent> {
     }
 
     /**
+     * removes the given cardSetView from setsArea, sets the CardEventHandler to null for the cardSetView then removes the cardSetView from the ArrayList of setViews
+     *
      * @param cardSetView
      */
     private void removeSet(CardSetView cardSetView) {
@@ -112,7 +119,7 @@ public class PlayArea implements EventHandler<CardEvent> {
     }
 
     /**
-     *
+     * creates a new placeholderSet and adds it to
      */
     private void createPlaceholderSet() {
         this.placeholderSet = new CardSetView();
@@ -135,13 +142,15 @@ public class PlayArea implements EventHandler<CardEvent> {
     }
 
     /**
-     *
+     * rolls back any recent moves
      */
     public void rollbackMoves() {
         setAllSets(snapshot);
     }
 
     /**
+     * checks the event type and handles it accordingly
+     *
      * @param event
      */
     @Override
@@ -164,6 +173,8 @@ public class PlayArea implements EventHandler<CardEvent> {
     }
 
     /**
+     * check if the set is valid
+     *
      * @param setSize
      * @return
      */

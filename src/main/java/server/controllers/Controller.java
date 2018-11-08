@@ -11,7 +11,6 @@ public class Controller {
 
 
     /**
-     *
      * @param machiavelli
      */
     public Controller(Machiavelli machiavelli) {

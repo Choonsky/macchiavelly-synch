@@ -5,13 +5,25 @@ import com.sun.javaws.exceptions.InvalidArgumentException;
 import server.models.cards.Card;
 
 public class DrawCard extends ClientCommand {
+    /**
+     * PRIVATES
+     */
     private int seatNumber;
     private String card;
 
+    /**
+     * CONSTRUCTOR
+     */
     public DrawCard() {
         super(CommandNames.DRAW_CARD);
     }
 
+    /**
+     * CONSTRUCTOR
+     *
+     * @param seatNumber
+     * @param card
+     */
     public DrawCard(int seatNumber, String card) {
         this();
         this.seatNumber = seatNumber;
@@ -20,12 +32,18 @@ public class DrawCard extends ClientCommand {
         addParameter(card);
     }
 
+    /**
+     * @param commandStr
+     */
     @Override
     public void doParse(String commandStr) {
         seatNumber = scanner.nextInt();
         card = scanner.next();
     }
 
+    /**
+     *
+     */
     @Override
     protected void doExecute() {
         try {

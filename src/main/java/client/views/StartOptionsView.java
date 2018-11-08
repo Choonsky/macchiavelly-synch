@@ -29,13 +29,15 @@ public class StartOptionsView extends View {
     private Text messageText;
 
 
-    /**
-     * PRIVATE STATICS
-     */
+    /************************
+     **** PRIVATE STATICS ***
+     ************************/
     private static StartOptionsView ourInstance = new StartOptionsView();
 
 
-
+    /***********************
+     ***** CONSTRUCTOR *****
+     ***********************/
     private StartOptionsView() {
         super();
         fxml = "/fxml/StartOptions.fxml";
@@ -50,6 +52,7 @@ public class StartOptionsView extends View {
      * GETTERS
      */
     /**
+     * get the instance
      *
      * @return
      */
@@ -58,6 +61,7 @@ public class StartOptionsView extends View {
     }
 
     /**
+     * handles new game action event
      *
      * @param ae
      */
@@ -75,6 +79,7 @@ public class StartOptionsView extends View {
     }
 
     /**
+     * handles join game action event
      *
      * @param ae
      */

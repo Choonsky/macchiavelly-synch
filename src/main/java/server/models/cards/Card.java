@@ -45,7 +45,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @param cardText
      * @return
      * @throws InvalidArgumentException
@@ -90,8 +89,6 @@ public class Card implements Comparable<Card> {
         return new Basic(suit, rank, rank);
 
     }
-
-
 
 
     /**
@@ -198,7 +195,6 @@ public class Card implements Comparable<Card> {
      * SETTERS
      */
     /**
-     *
      * @param suit
      */
     public void setSuit(Suit suit) {
@@ -206,7 +202,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @return
      */
     public boolean isHidden() {
@@ -214,7 +209,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @return
      */
     public boolean isDropTarget() {
@@ -222,7 +216,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @return
      */
     public boolean isJoker() {
@@ -230,7 +223,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @param otherCard
      * @return
      */
@@ -247,7 +239,8 @@ public class Card implements Comparable<Card> {
 
 
     /**
-     *  Cards with same rank and suits are considered equal
+     * Cards with same rank and suits are considered equal
+     *
      * @param o
      * @return
      */
@@ -261,7 +254,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -270,7 +262,6 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     *
      * @return
      */
     @Override

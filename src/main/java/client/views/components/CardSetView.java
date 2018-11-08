@@ -88,6 +88,53 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * GETTERS
+     */
+    /**
+     * @return
+     */
+    public CardSet getSnapshot() {
+        return snapshot;
+    }
+
+    /**
+     * gets the number of cards in cardSet
+     *
+     * @return
+     */
+    public int getCardCount() {
+        return cardSet.totalCount();
+    }
+
+    /**
+     * gets this cardView's cardSet
+     *
+     * @return
+     */
+    public CardSet getCardSet() {
+        return cardSet;
+    }
+    /**
+     * SETTERS
+     */
+    /**
+     * @param checkForValidity
+     */
+    public void setCheckForValidity(boolean checkForValidity) {
+        this.checkForValidity = checkForValidity;
+    }
+
+    /**
+     * @param interactive
+     */
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+
+    /**
+     * add the given card to this CardSetView
+     *
      * @param card
      * @return
      */
@@ -97,6 +144,16 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * creates a cardView from the given card,
+     * then adds the newly created cardView to this CardSetView,
+     * also adds the newly created cardView to the list of cardViews,
+     * sets this CardSetView as the parent of the newly created cardView
+     * then adds the given card to this CardSetView's cardSet
+     * if silent the fired a CARD_ADDED event
+     * if interactive, assign events to the cardView
+     * as long as it's not silent, mark the validity of the cardView, set the cardView as a newcomer and sort
+     * return the newly created cardView
+     *
      * @param card
      * @param silent
      * @return
@@ -127,6 +184,8 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * removes the given card from the given cardView
+     *
      * @param cardView
      */
     public void removeCard(CardView cardView) {
@@ -134,6 +193,10 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * removes the given cardView from this CardSetView's children, cardSet and list of cardViews
+     * if silent fire a CARD_REMOVED event
+     * mark validity
+     *
      * @param cardView
      * @param silent
      */
@@ -180,6 +243,8 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * assigns events to cards in the given cardView
+     *
      * @param cardView
      */
     private void assignEvents(CardView cardView) {
@@ -188,23 +253,10 @@ public class CardSetView extends HBox {
         });
     }
 
-    /**
-     * @return
-     */
-    public int getCardCount() {
-        return cardSet.totalCount();
-    }
 
     /**
-     * gets this cardView's cardSet
+     * sets this CardSetView's receive mode
      *
-     * @return
-     */
-    public CardSet getCardSet() {
-        return cardSet;
-    }
-
-    /**
      * @param receiverMode
      */
     public void setReceiverMode(boolean receiverMode) {
@@ -227,6 +279,8 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * checks if this CardSetView's cardSet is empty
+     *
      * @return
      */
     public boolean isEmpty() {
@@ -234,6 +288,8 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * checks if the given card can be added to this CardSetView's cardSet
+     *
      * @param card
      * @return
      */
@@ -242,7 +298,7 @@ public class CardSetView extends HBox {
     }
 
     /**
-     *
+     * sorts this CardSetView's children
      */
     private void sort() {
         ObservableList<Node> workingCollection = FXCollections.observableArrayList(
@@ -261,22 +317,9 @@ public class CardSetView extends HBox {
         this.getChildren().setAll(workingCollection);
     }
 
-    /**
-     * @param checkForValidity
-     */
-    public void setCheckForValidity(boolean checkForValidity) {
-        this.checkForValidity = checkForValidity;
-    }
 
     /**
-     * @param interactive
-     */
-    public void setInteractive(boolean interactive) {
-        this.interactive = interactive;
-    }
-
-    /**
-     *
+     * undo any cards moved
      */
     private void resetCardStates() {
         // Clear newcomers
@@ -286,6 +329,8 @@ public class CardSetView extends HBox {
     }
 
     /**
+     * takes a snapshot of the current state of all cards in this CardSetView's cardSet
+     *
      * @return
      */
     public CardSet takeSnapshot() {
@@ -294,15 +339,9 @@ public class CardSetView extends HBox {
         return this.snapshot;
     }
 
-    /**
-     * @return
-     */
-    public CardSet getSnapshot() {
-        return snapshot;
-    }
 
     /**
-     *
+     * reverse any cards taken from this CardSetView's cardSet
      */
     public void rollbackMoves() {
         while (!cardViews.isEmpty()) {

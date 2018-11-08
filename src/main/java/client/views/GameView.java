@@ -78,9 +78,9 @@ public class GameView extends View {
         }
     }
 
-    /**
-     * GETTERS
-     */
+    /*******************
+     ***** GETTERS *****
+     *******************/
     /**
      * @return
      */
@@ -118,9 +118,9 @@ public class GameView extends View {
         return seats.getOwnerPlayerHand();
     }
 
-    /**
-     * SETTERS
-     */
+    /**********************
+     ******* SETTERS ******
+     **********************/
     /**
      * @param playerCount
      */
@@ -145,6 +145,8 @@ public class GameView extends View {
     }
 
     /**
+     * activates playArea
+     *
      * @param active
      */
     public void setPlayAreaActive(boolean active) {
@@ -153,6 +155,8 @@ public class GameView extends View {
     }
 
     /**
+     * activates playArea
+     *
      * @param cardSet
      */
     public void setPlayAreaActive(CardSet cardSet) {
@@ -183,7 +187,7 @@ public class GameView extends View {
      ********** MODIFIERS TO BE USED BY CONTROLLERS **************
      *************************************************************/
     /**
-     *
+     * clears the messageBox
      */
     public void clearMessage() {
         setMessage("");
@@ -192,6 +196,14 @@ public class GameView extends View {
     /***********************************************
      *************************HANDS******************
      ************************************************/
+
+    /**
+     * adds the given card to the player at the given seatNumber
+     *
+     * @param seatNumber
+     * @param card
+     * @return
+     */
     public CardView addCardToHand(int seatNumber, Card card) {
         Player player = seats.getPlayer(seatNumber);
         return player.addCardToHand(card);
@@ -229,9 +241,9 @@ public class GameView extends View {
     }
 
 
-    /********************************************************
-     ************* HELPERS********************
-     *********************************************************************************
+    /****************************
+     ********* HELPERS **********
+     ****************************
      /**
      * Add new player to specified seat.
      *

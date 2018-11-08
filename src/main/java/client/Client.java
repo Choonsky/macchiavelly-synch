@@ -15,9 +15,9 @@ import java.net.Socket;
 
 public class Client extends Task<Void>/* implements Runnable*/ {
 
-    /*******************************************************************
-     **************************PRIVATES********************************
-     ******************************************************************/
+    /****************
+     ****PRIVATES****
+     ****************/
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
@@ -52,6 +52,7 @@ public class Client extends Task<Void>/* implements Runnable*/ {
 
     /**
      * CONSTRUCTOR
+     *
      * @param manager
      * @param port
      * @param playerName
@@ -62,12 +63,14 @@ public class Client extends Task<Void>/* implements Runnable*/ {
     }
 
     /**
+     * Processes all messages from server, according to the protocol.
+     *
      * @return
      * @throws Exception
      */
     @Override
     protected Void call() throws Exception {
-        // Process all messages from server, according to the protocol.
+
         try {
 
             String response;
@@ -98,6 +101,7 @@ public class Client extends Task<Void>/* implements Runnable*/ {
     }
 
     /**
+     * sends the given command to the server
      *
      * @param cmd
      */

@@ -33,6 +33,7 @@ public class CardSet {
 
     /**
      * CONSTRUCTOR
+     *
      * @param card
      */
     public CardSet(Card card) {
@@ -42,6 +43,7 @@ public class CardSet {
 
     /**
      * CONSTRUCTOR
+     *
      * @param setString
      */
     public CardSet(String setString) {
@@ -68,6 +70,7 @@ public class CardSet {
 
     /**
      * adds a card to the ArrayList of allCards
+     *
      * @param card
      */
     public void addCard(Card card) {
@@ -92,7 +95,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param cardSet
      */
     public void join(CardSet cardSet) {
@@ -100,7 +102,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param cards
      */
     public void addCards(Collection<Card> cards) {
@@ -110,7 +111,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param card
      * @return
      */
@@ -149,7 +149,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     public boolean isAValidMeld() {
@@ -157,7 +156,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param minSetSize
      * @return
      */
@@ -190,7 +188,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     public boolean isAStraight() {
@@ -217,7 +214,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     public boolean isASet() {
@@ -255,6 +251,7 @@ public class CardSet {
 
     /**
      * checks if the given cardSet can be added to the card set
+     *
      * @param cardSet
      * @return true if the given cardSet can be joined with the card set of allCards, false otherwise
      */
@@ -266,7 +263,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param card
      * @return true if the given card can be added to the set of allCards, false otherwise
      */
@@ -296,6 +292,7 @@ public class CardSet {
 
     /**
      * determines the size of allCards ArrayList
+     *
      * @return size of allCards ArrayList
      */
     public int totalCount() {
@@ -303,7 +300,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     private int cardCount() {
@@ -312,6 +308,7 @@ public class CardSet {
 
     /**
      * determins the size of jokers ArrayList
+     *
      * @return
      */
     private int jokerCount() {
@@ -319,7 +316,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     private int getMinRankDifference() {
@@ -340,7 +336,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     public CardSet getSnapshot() {
@@ -350,6 +345,7 @@ public class CardSet {
 
     /**
      * 2 Sets consisting of the same cards (rank,suit) considered equal regardless of the order of the cards.
+     *
      * @param obj
      * @return
      */
@@ -375,7 +371,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -385,7 +380,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -399,7 +393,6 @@ public class CardSet {
 
 
     /**
-     *
      * @param set
      * @return
      */
@@ -416,7 +409,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param set
      * @return
      */
@@ -432,6 +424,7 @@ public class CardSet {
 
     /**
      * removes the given list of cards from this cardSet
+     *
      * @param cards
      */
     public void removeCards(ArrayList<Card> cards) {
@@ -441,7 +434,6 @@ public class CardSet {
     }
 
     /**
-     *
      * @param cardSet
      */
     public void removeCards(CardSet cardSet) {

@@ -33,6 +33,8 @@ public class CardEvent extends Event {
      * GETTERS
      */
     /**
+     * gets the cardView
+     *
      * @return
      */
     public CardView getCardView() {
@@ -40,6 +42,8 @@ public class CardEvent extends Event {
     }
 
     /**
+     * gets the parent cardSet view
+     *
      * @return
      */
     public CardSetView getParentCardSetView() {
@@ -54,6 +58,8 @@ public class CardEvent extends Event {
      * SETTERS
      */
     /**
+     * sets the card view
+     *
      * @param cardView
      */
     public void setCardView(CardView cardView) {

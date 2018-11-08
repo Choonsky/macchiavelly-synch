@@ -34,6 +34,7 @@ public class Joker extends Changeable {
 
     /**
      * returns String "joker"
+     *
      * @return String
      */
     @Override
