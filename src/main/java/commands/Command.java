@@ -4,7 +4,6 @@ import commands.client.*;
 import commands.server.PassTurn;
 import commands.server.PlayerLogin;
 import commands.server.PlayerMove;
-import javafx.application.Platform;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -13,7 +12,10 @@ import java.util.StringJoiner;
 import static commands.Command.CommandTypes.CLIENT_COMMAND;
 import static commands.Command.CommandTypes.SERVER_COMMAND;
 
-
+/**
+ * Base class for both server and client commands.
+ *
+ */
 public abstract class Command {
 
     /**
@@ -22,15 +24,6 @@ public abstract class Command {
     protected CommandNames name;
     protected Stack<Object> parameters = new Stack<>();
     protected Scanner scanner;
-
-
-    /**
-     *
-     */
-    public void execute() {
-        Platform.runLater(this::doExecute);
-    }
-
 
     /**
      * CONSTRUCTOR
@@ -83,13 +76,17 @@ public abstract class Command {
     }
 
     /**
-     * @param param
+     * Adds a new parameter to the command.
+     * These parameters are used when serializing the command.
+     * @param param parameter to add.
      */
     protected void addParameter(Object param) {
         parameters.add(param);
     }
 
     /**
+     * Creates a scanner for parsing the command and parses just the name of the command.
+     * This behaviour is shared in all subclasses.
      * @param commandStr
      */
     private void parseName(String commandStr) {
@@ -103,7 +100,8 @@ public abstract class Command {
     }
 
     /**
-     * @param commandStr
+     * Parses command string and adds all parameters to this command.
+     * @param commandStr the string to be parsed.
      */
     void parse(String commandStr) {
         parseName(commandStr);
@@ -118,6 +116,7 @@ public abstract class Command {
     }
 
     /**
+     * Serializes the command into string. This method is used while exchenging the commands between server and client.
      * @return
      */
     public String serialize() {
@@ -139,12 +138,19 @@ public abstract class Command {
     }
 
     /**
+     * Commands can execute themselves.
+     * This method implements the general logic and leaves the concrete implementation to subclasses calling doExecute method.
+     */
+    public abstract void execute();
+
+    /**
+     * Parse the given command string and initialize command parameters.
      * @param commandStr
      */
     public abstract void doParse(String commandStr);
 
     /**
-     *
+     * Concrete implementation of command execution.
      */
     protected abstract void doExecute();
 
@@ -157,7 +163,7 @@ public abstract class Command {
     }
 
     /**
-     *
+     * Enums to be used as command names.
      */
     public enum CommandNames {
         //      SERVER_COMMANDS
@@ -186,6 +192,9 @@ public abstract class Command {
         /**
          * CONSTRUCTOR
          *
+         * Initialize the command name using command type and command class.
+         * The clazz is used to create concrete command instances from command strings.
+         *
          * @param type
          * @param clazz
          */
@@ -196,6 +205,8 @@ public abstract class Command {
 
         /**
          * CONSTRUCTOR
+         *
+         * Initialize the command name using only the command type.
          *
          * @param type
          */

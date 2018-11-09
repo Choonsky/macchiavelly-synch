@@ -5,6 +5,9 @@ import commands.Command;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
+/**
+ * When a player joins to the server, server introduces the new player to all other players with this command.
+ */
 public class IntroducePlayer extends ClientCommand {
     /**
      * PROCTECTS
@@ -32,9 +35,9 @@ public class IntroducePlayer extends ClientCommand {
     /**
      * CONSTUCTOR
      *
-     * @param playerName
-     * @param playerId
-     * @param seatNumber
+     * @param playerName name of the new player
+     * @param playerId id of the new player
+     * @param seatNumber the seat number of the new player.
      */
     public IntroducePlayer(String playerName, int playerId, int seatNumber) {
         this();

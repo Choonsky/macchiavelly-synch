@@ -2,6 +2,9 @@ package commands;
 
 import java.util.Scanner;
 
+/**
+ * Singleton factory class that creates concrete commands from command strings.
+ */
 public class CommandFactory {
     /**
      * PRIVATE STATICS
@@ -19,7 +22,7 @@ public class CommandFactory {
      * GETTERS
      */
     /**
-     * gets the instance
+     * gets the singleton instance
      *
      * @return
      */
@@ -28,10 +31,10 @@ public class CommandFactory {
     }
 
     /**
-     * CONSTRUCTOR
+     * Builds concrete command instance from command string.
      *
-     * @param cmdString
-     * @return
+     * @param cmdString the serialized command string.
+     * @return created concrete command.
      */
     public static Command buildCommand(String cmdString) {
         scanner = new Scanner(cmdString);
@@ -52,7 +55,8 @@ public class CommandFactory {
     }
 
     /**
-     * @return
+     * Parses the name part of the command string and creates a CommandName enum from that.
+     * @return CommandName enum
      */
     private static Command.CommandNames parseName() {
         String nameStr = scanner.next();

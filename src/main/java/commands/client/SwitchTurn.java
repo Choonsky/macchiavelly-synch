@@ -1,5 +1,8 @@
 package commands.client;
 
+/**
+ * Server tells clients to switch the turn to the next player.
+ */
 public class SwitchTurn extends ClientCommand {
     /**
      * PRIVATES
@@ -26,7 +29,7 @@ public class SwitchTurn extends ClientCommand {
     /**
      * CONSTRUCTOR
      *
-     * @param seatNumber
+     * @param seatNumber the seat number of the turn
      */
     public SwitchTurn(int seatNumber) {
         this();

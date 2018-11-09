@@ -3,6 +3,11 @@ package commands.server;
 import commands.Command;
 import server.models.Machiavelli;
 
+/**
+ * Base class for all server commands.
+ * This class just offers a Machiavelli instance for easy access from within subclasses.
+ * And implements abstract execute method.
+ */
 public abstract class ServerCommand extends Command {
     /**
      * PROTECTS
@@ -28,7 +33,7 @@ public abstract class ServerCommand extends Command {
     }
 
     /**
-     *
+     * Just call doExecute to let subclass do it's job.
      */
     @Override
     public void execute() {

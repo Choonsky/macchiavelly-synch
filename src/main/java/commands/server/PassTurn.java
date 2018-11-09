@@ -1,5 +1,8 @@
 package commands.server;
 
+/**
+ * When player can not play any card from hand this command lets server to pass the turn to the next player.
+ */
 public class PassTurn extends ServerCommand {
     /**
      *
@@ -17,7 +20,7 @@ public class PassTurn extends ServerCommand {
     }
 
     /**
-     *
+     * Just call the relative method.
      */
     @Override
     protected void doExecute() {

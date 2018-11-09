@@ -1,12 +1,15 @@
 package commands.server;
 
+import commands.BasicCommand;
 import server.models.CardSet;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class PlayerMove extends ServerCommand {
+/**
+ * The command that represents a player move. This is used both by server and client.
+ */
+public class PlayerMove extends BasicCommand {
     /**
      * PROTECTS
      */
@@ -35,9 +38,9 @@ public class PlayerMove extends ServerCommand {
     /**
      * CONSTRUCTOR
      *
-     * @param seatNumber
-     * @param playedCards
-     * @param table
+     * @param seatNumber the seat number of the player who made the move
+     * @param playedCards the cards player puts on the table from his hand.
+     * @param table resulting sets of cards that are on the table after the proposed move has been made.
      */
     public PlayerMove(int seatNumber, CardSet playedCards, List<CardSet> table) {
         this();
@@ -105,17 +108,4 @@ public class PlayerMove extends ServerCommand {
             count++;
         }
     }
-
-    /**
-     *
-     */
-    @Override
-    public void doExecute() {
-        System.out.println("PlayerMove executing itself...");
-        System.out.println("First set:" + table.get(0));
-//        boolean result = machiavelli.processMove(this);
-//        System.out.println(" Move accepted: " + result);
-    }
-
-
 }

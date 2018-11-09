@@ -4,8 +4,7 @@ import client.views.GameView;
 import client.views.View;
 import client.views.components.CardSetView;
 import client.views.components.CardView;
-import commands.BasicCommand;
-import commands.Command;
+import commands.server.PassTurn;
 import commands.server.PlayerMove;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
@@ -287,7 +286,7 @@ public class ClientManager {
 
 //      No card played. Just pass the turn.
         if (prevHand.equals(lastHand)) {
-            client.sendCommandToServer(new BasicCommand(Command.CommandNames.PASS_TURN));
+            client.sendCommandToServer(new PassTurn());
             return true;
         }
 

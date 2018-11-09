@@ -4,6 +4,9 @@ package commands.client;
 import com.sun.javaws.exceptions.InvalidArgumentException;
 import server.models.cards.Card;
 
+/**
+ * When a player passes without playing any card server draws a card to his hand and inform other players using this command.
+ */
 public class DrawCard extends ClientCommand {
     /**
      * PRIVATES
@@ -21,8 +24,8 @@ public class DrawCard extends ClientCommand {
     /**
      * CONSTRUCTOR
      *
-     * @param seatNumber
-     * @param card
+     * @param seatNumber the seat number of the player who draws a card.
+     * @param card the card drawn from the deck.
      */
     public DrawCard(int seatNumber, String card) {
         this();

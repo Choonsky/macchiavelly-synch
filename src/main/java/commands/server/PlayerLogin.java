@@ -2,6 +2,9 @@ package commands.server;
 
 import java.net.URLEncoder;
 
+/**
+ * To let the server the logged in player name.
+ */
 public class PlayerLogin extends ServerCommand {
     /**
      * PRIVATES
