@@ -43,9 +43,6 @@ public class GameView extends View {
     private Button revertButton;
 
     @FXML
-    private Button endTurnButton;
-
-    @FXML
     public void onRevertClicked(ActionEvent ae) {
         resetMove();
     }
