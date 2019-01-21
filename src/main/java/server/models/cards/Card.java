@@ -18,6 +18,7 @@ public class Card implements Comparable<Card> {
     protected boolean joker = false;
     public static final String BACK_OF_CARD_IMAGE = "images/b.png";
     public static final String DROP_TARGET_IMAGE = "images/dropTarget.png";
+    public static final String NO_CARD_IMAGE = "images/nocards.png";
 
     /******************************
      ********** PROTECTS ********

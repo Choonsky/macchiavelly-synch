@@ -302,6 +302,8 @@ public class ClientManager implements clientManagerInterface {
     }
 
     public boolean endTurn(MouseEvent event) {
+
+
         if (!isOwnerTurn()) {
             return false;
         }
@@ -323,6 +325,8 @@ public class ClientManager implements clientManagerInterface {
 
             return true;
         }
+
+        // User is the winner
         if (lastHand.totalCount() <= 0) {
             gameView.setMessage("Hurray!!! You are the winner.");
             WinnerCommand win = new WinnerCommand(Command.CommandNames.SET_WINNER);
@@ -334,6 +338,7 @@ public class ClientManager implements clientManagerInterface {
 
         CardSet playedCards = prevHand.diff(lastHand);
         PlayerMove move = new PlayerMove(gameView.getOwnerSeat(), playedCards, table);
+
 
         client.sendCommandToServer(move);
 
