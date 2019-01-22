@@ -56,11 +56,8 @@ public class CardSetView extends HBox {
         initLayout();
         cardViews = new ArrayList<>();
         snapshot = new CardSet();
-        /* My code*/
         snapshots = new ArrayList<>();
-
-        /* End */
-        this.cardSet = new CardSet();
+       this.cardSet = new CardSet();
 
         for (Card card : cardSet.getCards()) {
             addCard(card);
@@ -346,21 +343,14 @@ public class CardSetView extends HBox {
         resetCardStates();
         this.snapshot = cardSet.getSnapshot();
 
-        /*  My Code 2019-01-20-12-22*/
-
         snapshots.add(0, this.snapshot);
-
-        /*                */
         return this.snapshot;
     }
 
-    /*My Code : Init the snap state at turn starting point*/
     public void init_snapshots()
     {
         snapshots.clear();
     }
-
-    /* End */
 
     /**
      * reverse any cards taken from this CardSetView's cardSet
@@ -373,12 +363,9 @@ public class CardSetView extends HBox {
             removeCard(cardViews.get(0), true);
         }
 
-        /* My Code 2019-01-20-12-59*/
-
             CardSet tem_snapshot = (CardSet) snapshots.get(0);
            snapshots.remove(0);
 
-        /**/
         for (Card card : tem_snapshot.getCards()) {
             addCard(card, true);
         }
