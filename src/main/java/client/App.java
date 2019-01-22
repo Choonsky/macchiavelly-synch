@@ -88,6 +88,7 @@ public class App extends Application implements appInterface {
         this.primaryStage.setOnHidden(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
+                GameView gameView = (GameView) getActiveView();
 
                 Platform.exit();
                 System.exit(0);

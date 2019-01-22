@@ -304,15 +304,6 @@ public class GameView extends View {
             fillDeck();
         }
 
-        if(machiavelli.getTable().getDeck().size()<=0)
-        {
-            deckImageView.setImage(ViewHelper.getImage(Card.NO_CARD_IMAGE));
-        }
-        else
-
-        {
-            deckImageView.setImage(ViewHelper.getImage(Card.BACK_OF_CARD_IMAGE));
-        }
 
 
         if (seatNumber == getOwnerSeat()) {
@@ -320,6 +311,19 @@ public class GameView extends View {
         } else {
             setMessage("Please wait for your turn.");
         }
+        if(machiavelli!=null)
+
+            if(machiavelli.getTable()!=null)
+                if(machiavelli.getTable().getDeck()!=null)
+                if(machiavelli.getTable().getDeck().size()<=0)
+                {
+                    deckImageView.setImage(ViewHelper.getImage(Card.NO_CARD_IMAGE));
+                }
+                else
+
+                {
+                    deckImageView.setImage(ViewHelper.getImage(Card.BACK_OF_CARD_IMAGE));
+                }
     }
 
     /**
