@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
@@ -19,6 +20,8 @@ import server.models.CardSet;
 import server.models.Machiavelli;
 import server.models.cards.Card;
 import server.models.cards.HiddenCard;
+
+import java.net.URL;
 
 public class GameView extends View {
     /*************************************************************
@@ -132,7 +135,11 @@ public class GameView extends View {
         this.seats = new GameSeats(board, playerCount);
         this.playArea = new PlayArea(setsArea);
 
-        deckImageView.setImage(ViewHelper.getImage(Card.BACK_OF_CARD_IMAGE));
+        URL url = getClass().getClassLoader().getResource(Card.BACK_OF_CARD_IMAGE);
+        Image image = new Image(url.toString());
+
+//        deckImageView.setImage(ViewHelper.getImage(Card.BACK_OF_CARD_IMAGE));
+        deckImageView.setImage(image);
         deckImageView.setVisible(false);
         deckImageView.setOnMouseClicked(event -> ClientManager.getInstance().endTurn(event));
         revertButton.setVisible(false);
@@ -287,6 +294,14 @@ public class GameView extends View {
         seats.getOwnerPlayerHand().takeSnapshot();
     }
 
+    /* My code : Init the Hand and Table cards snapshot*/
+    public  void init_snapstate(){
+
+        playArea.init_history();
+        seats.getOwnerPlayerHand().init_snapshots();
+    }
+
+    /**/
     /**
      * switches turn from current player to next player
      *

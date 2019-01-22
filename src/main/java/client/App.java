@@ -61,8 +61,12 @@ public class App extends Application implements appInterface {
 
     private LoginView loginView;
 
+    /* My Code */
+    private boolean isSizeChanged;
+    /* End*/
     @FXML
     private StackPane rootLayout;
+
 
     /***************
      ****PROTECTS****
@@ -121,8 +125,36 @@ public class App extends Application implements appInterface {
 
             primaryStage.setTitle(constants.TITLE);
             primaryStage.setMaximized(true);
+            /* My Code */
+            primaryStage.setMinWidth(MIN_WIDTH);
+            primaryStage.setMinHeight(MIN_HEIGHT);
+            /* End code */
             // primaryStage.setResizable(false);
             primaryStage.show();
+            /* My Code */
+            isSizeChanged= false;
+            primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
+                // Do whatever you want
+                if(isSizeChanged){
+                    primaryStage.show();
+                    isSizeChanged= false;
+                    return;
+                }
+                isSizeChanged= true;
+                primaryStage.setHeight(((double)newVal)*0.66);
+
+            });
+            primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
+                // Do whatever you want
+                if(isSizeChanged){
+                    primaryStage.show();
+                    isSizeChanged= false;
+                    return;
+                }
+                isSizeChanged= true;
+                primaryStage.setWidth(((double)newVal)/0.66);
+            });
+            /* End */
         } catch (IOException e) {
             e.printStackTrace();
         }
