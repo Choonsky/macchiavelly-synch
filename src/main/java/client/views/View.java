@@ -78,11 +78,7 @@ public abstract class View {
             ClassLoader classLoader = getClass().getClassLoader();
             URL url = classLoader.getResource(fileName);
 
-            /* My Code */
-
             System.out.println(url.toString());
-
-            /*End*/
             BackgroundSize bSize = new BackgroundSize(100, 100, true, true, true, true);
             if (url != null) {
                 File file = new File(url.getFile());

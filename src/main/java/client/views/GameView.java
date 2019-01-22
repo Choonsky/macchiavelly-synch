@@ -294,14 +294,11 @@ public class GameView extends View {
         seats.getOwnerPlayerHand().takeSnapshot();
     }
 
-    /* My code : Init the Hand and Table cards snapshot*/
     public  void init_snapstate(){
 
         playArea.init_history();
         seats.getOwnerPlayerHand().init_snapshots();
     }
-
-    /**/
     /**
      * switches turn from current player to next player
      *
