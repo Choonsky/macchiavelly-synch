@@ -77,7 +77,7 @@ public class CardSet {
         allCards.add(card);
         if (card.isJoker()) {
             //if(jokerCount()<=1)
-                jokers.add(card);
+            jokers.add(card);
 
             return;
         }

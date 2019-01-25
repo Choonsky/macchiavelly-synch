@@ -174,7 +174,6 @@ public class ClientManager implements clientManagerInterface {
         showView(gameView);
 
 
-
     }
 
     /**
@@ -317,7 +316,7 @@ public class ClientManager implements clientManagerInterface {
 //      No card played. Just pass the turn.
         if (prevHand.equals(lastHand)) {
             /*My Code */
-                gameView.init_snapstate();
+            gameView.init_snapstate();
             /*End */
             client.sendCommandToServer(new PassTurn());
             return true;
@@ -349,8 +348,7 @@ public class ClientManager implements clientManagerInterface {
         return true;
     }
 
-    public void setWinner()
-    {
+    public void setWinner() {
         gameView.setMessage("You've lost the game, better luck next time :)");
     }
 

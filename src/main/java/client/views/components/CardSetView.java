@@ -39,6 +39,7 @@ public class CardSetView extends HBox {
     private CardSet snapshot;
 
     private ArrayList<CardSet> snapshots;
+
     /**
      * CONSTRUCTOR
      */
@@ -57,7 +58,7 @@ public class CardSetView extends HBox {
         cardViews = new ArrayList<>();
         snapshot = new CardSet();
         snapshots = new ArrayList<>();
-       this.cardSet = new CardSet();
+        this.cardSet = new CardSet();
 
         for (Card card : cardSet.getCards()) {
             addCard(card);
@@ -99,7 +100,7 @@ public class CardSetView extends HBox {
      */
     public CardSet getSnapshot() {
 
-        return  snapshots.get(snapshots.size()-1);
+        return snapshots.get(snapshots.size() - 1);
 //        return snapshot;
     }
 
@@ -347,8 +348,7 @@ public class CardSetView extends HBox {
         return this.snapshot;
     }
 
-    public void init_snapshots()
-    {
+    public void init_snapshots() {
         snapshots.clear();
     }
 
@@ -357,14 +357,14 @@ public class CardSetView extends HBox {
      */
     public void rollbackMoves() {
 
-        if(snapshots.size()<=1) return;
+        if (snapshots.size() <= 1) return;
 
         while (!cardViews.isEmpty()) {
             removeCard(cardViews.get(0), true);
         }
 
-            CardSet tem_snapshot = (CardSet) snapshots.get(0);
-           snapshots.remove(0);
+        CardSet tem_snapshot = (CardSet) snapshots.get(0);
+        snapshots.remove(0);
 
         for (Card card : tem_snapshot.getCards()) {
             addCard(card, true);

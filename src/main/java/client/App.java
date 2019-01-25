@@ -128,27 +128,27 @@ public class App extends Application implements appInterface {
             primaryStage.setMinHeight(MIN_HEIGHT);
             // primaryStage.setResizable(false);
             primaryStage.show();
-            isSizeChanged= false;
+            isSizeChanged = false;
             primaryStage.widthProperty().addListener((obs, oldVal, newVal) -> {
                 // Do whatever you want
-                if(isSizeChanged){
+                if (isSizeChanged) {
                     primaryStage.show();
-                    isSizeChanged= false;
+                    isSizeChanged = false;
                     return;
                 }
-                isSizeChanged= true;
-                primaryStage.setHeight(((double)newVal)*0.66);
+                isSizeChanged = true;
+                primaryStage.setHeight(((double) newVal) * 0.66);
 
             });
             primaryStage.heightProperty().addListener((obs, oldVal, newVal) -> {
                 // Do whatever you want
-                if(isSizeChanged){
+                if (isSizeChanged) {
                     primaryStage.show();
-                    isSizeChanged= false;
+                    isSizeChanged = false;
                     return;
                 }
-                isSizeChanged= true;
-                primaryStage.setWidth(((double)newVal)/0.66);
+                isSizeChanged = true;
+                primaryStage.setWidth(((double) newVal) / 0.66);
             });
         } catch (IOException e) {
             e.printStackTrace();

@@ -20,12 +20,12 @@ public class ViewHelper implements viewHelperInterface {
      * @return Image
      */
 //    public static Image getImage(String resource) {
-    public  static Image getImage(String resource) {
+    public static Image getImage(String resource) {
         if (imageCache.containsKey(resource)) {
             return imageCache.get(resource);
         }
 
-        ClassLoader classLoader =ViewHelper.class.getClassLoader();
+        ClassLoader classLoader = ViewHelper.class.getClassLoader();
 
         URL url = classLoader.getResource(resource);
 

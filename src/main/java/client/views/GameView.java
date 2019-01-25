@@ -294,18 +294,18 @@ public class GameView extends View {
         seats.getOwnerPlayerHand().takeSnapshot();
     }
 
-    public  void init_snapstate(){
+    public void init_snapstate() {
 
         playArea.init_history();
         seats.getOwnerPlayerHand().init_snapshots();
     }
+
     /**
      * switches turn from current player to next player
      *
      * @param seatNumber
      */
     public void switchTurn(int seatNumber) {
-
 
 
         for (int i = 1; i <= playerCount; i++) {
@@ -317,25 +317,20 @@ public class GameView extends View {
         }
 
 
-
         if (seatNumber == getOwnerSeat()) {
             setMessage("It's your turn. Click on the deck when you're done.");
         } else {
             setMessage("Please wait for your turn.");
         }
-        if(machiavelli!=null)
+        if (machiavelli != null)
 
-            if(machiavelli.getTable()!=null)
-                if(machiavelli.getTable().getDeck()!=null)
-                if(machiavelli.getTable().getDeck().size()<=0)
-                {
-                    deckImageView.setImage(ViewHelper.getImage(Card.NO_CARD_IMAGE));
-                }
-                else
-
-                {
-                    deckImageView.setImage(ViewHelper.getImage(Card.BACK_OF_CARD_IMAGE));
-                }
+            if (machiavelli.getTable() != null)
+                if (machiavelli.getTable().getDeck() != null)
+                    if (machiavelli.getTable().getDeck().size() <= 0) {
+                        deckImageView.setImage(ViewHelper.getImage(Card.NO_CARD_IMAGE));
+                    } else {
+                        deckImageView.setImage(ViewHelper.getImage(Card.BACK_OF_CARD_IMAGE));
+                    }
     }
 
     /**

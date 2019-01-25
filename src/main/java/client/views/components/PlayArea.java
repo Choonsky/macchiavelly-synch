@@ -18,6 +18,7 @@ public class PlayArea implements EventHandler<CardEvent> {
     private List<CardSet> snapshot;
 
     private List<Object> snapshot_history;
+
     /**
      * CONSTRUCTOR
      *
@@ -28,7 +29,7 @@ public class PlayArea implements EventHandler<CardEvent> {
 
         setViews = new ArrayList<>();
         snapshot = new ArrayList<>();
-        snapshot_history= new ArrayList<>();
+        snapshot_history = new ArrayList<>();
         createPlaceholderSet();
     }
 
@@ -148,16 +149,16 @@ public class PlayArea implements EventHandler<CardEvent> {
         return this.snapshot;
     }
 
-    public void init_history(){
+    public void init_history() {
         snapshot_history.clear();
     }
+
     /**
      * rolls back any recent moves
      */
     public void rollbackMoves() {
-        if(snapshot_history.size()>=2)
-        {
-            List<CardSet> tem_snapshot = (List<CardSet>)snapshot_history.get(0);
+        if (snapshot_history.size() >= 2) {
+            List<CardSet> tem_snapshot = (List<CardSet>) snapshot_history.get(0);
             setAllSets(tem_snapshot);
             snapshot_history.remove(0);
         }
